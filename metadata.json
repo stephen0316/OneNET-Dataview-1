@@ -1,5 +1,5 @@
 {
-  "name": "Fire Safety Monitor",
-  "description": "A comprehensive fire safety monitoring dashboard for Jiangsu Haitong Town No. 1 Middle School, featuring real-time device stats, risk warnings, and patrol data.",
+  "name": "OneNET 物联消防大屏",
+  "description": "OneNET 物联消防监管大屏，包含实时监控、报警统计、设备状态和地图展示功能。",
   "requestFramePermissions": []
 }
