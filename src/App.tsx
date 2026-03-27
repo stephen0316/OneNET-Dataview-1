@@ -5,13 +5,32 @@
 
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
-import { ShieldCheck, Server, Activity, Settings, LogOut } from 'lucide-react';
+import { ShieldCheck, Server, Activity, CloudSun, Wind, Droplets } from 'lucide-react';
 import { Card } from './components/Card';
 import { ChinaMap } from './components/ChinaMap';
 import { HandlingStats } from './components/HandlingStats';
 import { RealtimeTable } from './components/RealtimeTable';
 import { AlarmTypePie } from './components/AlarmTypePie';
 import { AlarmTrendLine } from './components/AlarmTrendLine';
+
+const WeatherDisplay = () => {
+  return (
+    <div className="flex items-center gap-3 md:gap-5 text-[#00ffff] font-mono text-sm md:text-base tracking-wider">
+      <div className="flex items-center gap-2">
+        <CloudSun size={18} className="text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]" />
+        <span>多云 24°C</span>
+      </div>
+      <div className="hidden md:flex items-center gap-1.5 text-cyan-300/90 text-xs md:text-sm">
+        <Wind size={14} />
+        <span>东南风 3级</span>
+      </div>
+      <div className="hidden lg:flex items-center gap-1.5 text-cyan-300/90 text-xs md:text-sm">
+        <Droplets size={14} />
+        <span>湿度 45%</span>
+      </div>
+    </div>
+  );
+};
 
 const Clock = () => {
   const [time, setTime] = useState(new Date());
@@ -53,14 +72,7 @@ export default function App() {
         </div>
 
         <div className="relative flex items-center justify-end gap-3 md:gap-4 w-1/4 md:w-1/3 text-sm text-cyan-300 mb-3 md:mb-5">
-          <button className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded border border-cyan-500/30 bg-cyan-900/20 hover:bg-cyan-500/20 hover:border-cyan-400 hover:text-white transition-all cursor-pointer text-cyan-100 group shadow-[0_0_10px_rgba(0,255,255,0.1)] hover:shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-            <Settings size={16} className="text-cyan-400 group-hover:rotate-90 transition-transform duration-500" />
-            <span className="text-xs md:text-sm">设置</span>
-          </button>
-          <button className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 rounded border border-cyan-500/30 bg-cyan-900/20 hover:bg-red-500/20 hover:border-red-400 hover:text-red-100 transition-all cursor-pointer text-cyan-100 group shadow-[0_0_10px_rgba(0,255,255,0.1)] hover:shadow-[0_0_15px_rgba(255,68,68,0.3)]">
-            <LogOut size={16} className="text-cyan-400 group-hover:text-red-400 transition-colors" />
-            <span className="text-xs md:text-sm">退出</span>
-          </button>
+          <WeatherDisplay />
         </div>
       </header>
 
